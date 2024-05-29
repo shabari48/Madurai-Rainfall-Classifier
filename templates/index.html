@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Madurai Rainfall Classification</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url("{{ url_for('static', filename='images/mdu.jpg') }}"); /* Replace 'background-image.jpg' with the path to your image */
+        background-size: cover;
+        background-position: center;
+      }
+
+      form {
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.8
+        ); /* Semi-transparent white background */
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      input[type="text"],
+      input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"] {
+        background-color: #007bff; /* Blue color for the predict button */
+        color: white;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #0056b3; /* Darker blue color on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form action="/predict" method="post">
+        <h1>Namma Madurai Rainfall Classifier</h1>
+        <label for="temp">Temperature:</label>
+        <input type="text" id="temp" name="temp" /><br /><br />
+        <label for="dew">Dew Point:</label>
+        <input type="text" id="dew" name="dew" /><br /><br />
+        <label for="humidity">Humidity:</label>
+        <input type="text" id="humidity" name="humidity" /><br /><br />
+        <label for="windgust">Wind Gust:</label>
+        <input type="text" id="windgust" name="windgust" /><br /><br />
+        <label for="windspeed">Wind Speed:</label>
+        <input type="text" id="windspeed" name="windspeed" /><br /><br />
+        <label for="cloudcover">Cloud Cover:</label>
+        <input type="text" id="cloudcover" name="cloudcover" /><br /><br />
+        <label for="visibility">Visibility:</label>
+        <input type="text" id="visibility" name="visibility" /><br /><br />
+        <input type="submit" value="Predict" />
+      </form>
+    </div>
+  </body>
+</html>
